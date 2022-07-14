@@ -8,7 +8,6 @@ function Form() {
   let user = "parvez@gmail.com";
   let myPassword = "12341234";
 
-  let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [msg, setMsg] = useState("");
@@ -32,6 +31,8 @@ function Form() {
     } else if (email !== "parvez@gmail.com" || password !== "12341234") {
       setMsg("Incorrect Credentials");
     } else {
+      setEmail("");
+      setPassword("");
       setMsg("Success !!!!!");
     }
   };
