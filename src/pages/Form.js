@@ -25,11 +25,14 @@ function Form() {
     };
   }, [msg]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!email || !password) {
       setMsg("Please Enter all the values");
     } else if (email !== "parvez@gmail.com" || password !== "12341234") {
-      setMsg("Please Enter all the values");
+      setMsg("Incorrect Credentials");
+    } else {
+      setMsg("Success !!!!!");
     }
   };
 
@@ -44,9 +47,13 @@ function Form() {
                 <div className="row">
                   <div className="col-md-9 col-lg-10 mx-auto">
                     <form style={{ marginTop: "10%" }}>
-                      <h2 className="login-heading my-4 text-white">
-                        Please fill the confirm
-                      </h2>
+                      {msg === "Success !!!!!" ? (
+                        ""
+                      ) : (
+                        <h2 className="login-heading my-4 text-white">
+                          Please fill the confirm
+                        </h2>
+                      )}
                       {msg ? <Alert variant="secondary">{msg}</Alert> : ""}
 
                       <div className="form-floating mb-3">
